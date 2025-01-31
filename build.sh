@@ -7,8 +7,5 @@ apt-get install -y \
     libasound2 libatk1.0-0 libcups2 libdbus-1-3 libgdk-pixbuf2.0-0 libgtk-3-0 libnspr4 \
     libnss3 libxss1 libxshmfence1
 
-# Install Puppeteer if not already installed
+# Ensure Puppeteer is installed and can find Chromium
 npm install puppeteer
-
-# Reinstall Puppeteer Chromium
-npx puppeteer browsers install chrome
