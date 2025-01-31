@@ -1,0 +1,111 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100);
+
+body {
+  background-color: #f9f9f9;
+}
+
+/* Container to hold both input section and table section */
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Input section styles (on the left side) */
+.inputs {
+  width: 40%;
+  padding: 20px;
+}
+
+.URL-input,
+.gender,
+.scoring-system {
+  margin-bottom: 20px;
+  color: #063970;
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+}
+
+/* Scores table section (on the right side) */
+.scores {
+  width: 55%;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+.main-header {
+  text-align: center;
+  color: #063970;
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+#response {
+  margin-top: 20px;
+  color: red;
+}
+/* Hide the content initially */
+.content {
+  display: block;
+}
+
+/* Container to center the spinner */
+.spinner-container {
+  position: fixed; /* Make sure spinner stays in place */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Optional: Add a background to cover the content */
+  z-index: 9999; /* Ensure spinner is on top */
+  display: none; /* Initially hidden */
+}
+
+/* Spinner styles */
+#loading {
+  width: 150px;
+  height: 150px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #063970;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+/* Keyframes for spinner animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
