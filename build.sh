@@ -1,9 +1,14 @@
 #!/bin/bash
-set -e  # Exit on error
 
-# Update package lists and install Chromium (without sudo)
+# Install system dependencies
 apt-get update
-apt-get install -y chromium
+apt-get install -y \
+    libxfixes3 libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxi6 libxtst6 libxrandr2 \
+    libasound2 libatk1.0-0 libcups2 libdbus-1-3 libgdk-pixbuf2.0-0 libgtk-3-0 libnspr4 \
+    libnss3 libxss1 libxshmfence1
 
-# Install dependencies using npm ci (ensures exact package versions)
-npm ci
+# Install npm dependencies (like puppeteer)
+npm install
+
+# You can run your build script or start the application
+npm run build || npm start
