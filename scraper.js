@@ -2,12 +2,12 @@ require("dotenv").config();
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 
-// const chromiumPath =
-//   process.env.NODE_ENV === 'production'
-//     ? '/usr/bin/chromium' // Path for Render or production server
-//     : 'C:/Program Files/Google/Chrome/Application/chrome.exe'; // Local path
-// const puppeteerCacheDir =
-//   process.env.PUPPETEER_CACHE_DIR || "/tmp/puppeteer_cache";
+const chromiumPath =
+  process.env.NODE_ENV === 'production'
+    ? '/usr/bin/chromium' // Path for Render or production server
+    : 'C:/Program Files/Google/Chrome/Application/chrome.exe'; // Local path
+const puppeteerCacheDir =
+  process.env.PUPPETEER_CACHE_DIR || "/tmp/puppeteer_cache";
 
 if (!fs.existsSync(puppeteerCacheDir)) {
   fs.mkdirSync(puppeteerCacheDir, { recursive: true });
@@ -16,7 +16,7 @@ if (!fs.existsSync(puppeteerCacheDir)) {
 async function scrapeTeams(url, gender, scoringSystem) {
   const browser = await puppeteer.launch({
     headless: true, // Ensure headless mode
-    executablePath: '/usr/bin/chromium-browser',
+    // executablePath: chromiumPath,
     userDataDir: puppeteerCacheDir,
     args: [
       "--no-sandbox",
