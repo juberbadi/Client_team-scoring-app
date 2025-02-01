@@ -41,7 +41,7 @@ async function scrapeTeams(url, gender, scoringSystem) {
   
 
   const page = await browser.newPage();
-  await page.goto(url, { waitUntil: "networkidle2" });
+  await page.goto(url, { waitUntil: "networkidle2" , timeout: 120000 });
 
   let teamNameandScores = [];
   let teams = [];
