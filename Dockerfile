@@ -4,6 +4,8 @@ FROM node:20.5.1
 # Set working directory
 WORKDIR /app
 
+RUN npm cache clean --force
+
 # Copy package.json and package-lock.json (if available) and install dependencies
 COPY package*.json ./
 RUN npm install
