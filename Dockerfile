@@ -17,9 +17,6 @@ RUN apt-get update && apt-get install -y \
     libdbus-1-3 libgdk-pixbuf2.0-0 libgtk-3-0 libnspr4 libnss3 \
     libxss1 libxshmfence1
 
-    sudo apt-get install -y libxfixes3 3 sudo apt-get install -y libxfixes3 libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxi6 libxtst6 libxrandr2 libasound2 libatk1.0-0 libcups2 libdbus-1-3 libgdk-pixbuf2.0-0 libgtk-3-0 libnspr4 libnss3 libxss1 libxshmfence1 4 npx puppeteer browsers install chrome 5 Restart Server  
-
-
 # Install gopd package
 RUN npm install gopd
 
