@@ -1,8 +1,11 @@
 # Use Node.js 20.5.1 base image
 FROM node:20.5.1
 
-# Copy package.json and install dependencies
-COPY package.json ./
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json (if available) and install dependencies
+COPY package*.json ./
 RUN npm install
 
 # Install required dependencies for Puppeteer and other packages
@@ -12,21 +15,14 @@ RUN apt-get update && apt-get install -y \
     libdbus-1-3 libgdk-pixbuf2.0-0 libgtk-3-0 libnspr4 libnss3 \
     libxss1 libxshmfence1
 
-# Set working directory
-WORKDIR /app
-
 # Install gopd package
 RUN npm install gopd
 
 # Copy the rest of your files
 COPY . .
 
-# Run your build script
-RUN ./build.sh
-
 # Install Chrome for Puppeteer
-RUN npx puppeteer install chrome
-
+RUN npx puppeteer browsers install chrome
 # Expose port if necessary (update to your app's port)
 EXPOSE 3000
 
