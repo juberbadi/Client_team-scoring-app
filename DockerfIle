@@ -1,6 +1,10 @@
 # Use Node.js 20.5.1 base image
 FROM node:20.5.1
 
+# Copy package.json and install dependencies
+COPY package.json ./
+RUN npm install
+
 # Install required dependencies for Puppeteer and other packages
 RUN apt-get update && apt-get install -y \
     libxfixes3 libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 \
@@ -10,10 +14,6 @@ RUN apt-get update && apt-get install -y \
 
 # Set working directory
 WORKDIR /app
-
-# Copy package.json and install dependencies
-COPY package.json ./
-RUN npm install
 
 # Install gopd package
 RUN npm install gopd
